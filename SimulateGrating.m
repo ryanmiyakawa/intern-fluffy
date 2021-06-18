@@ -49,7 +49,7 @@ for k=1:length(Thickness_range)
     
     %Populate wave functions
     for n=1:4
-        [wave_new, idealMask] = createRectangleTransmission(X, Y, RectangleLocation(n,:), z_elevation, Size_Cell{k}(n,:), 'Ru');
+        [wave_new, idealMask] = createRectangleTransmission(X, Y, RectangleLocation(n,:), z_elevation, Size_Cell{k}(n,:), Material);
         wave=wave.*wave_new;
     end
     %Image SIM
