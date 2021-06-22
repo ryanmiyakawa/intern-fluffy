@@ -61,7 +61,7 @@ for k=1:length(Thickness_range)
     %effects will show a wave vale grater than one due to ringing, I wont even
     %ask what the max value is.
     min_sim = min(abs(filtered{k}),[],'all'); %returns the smallest element of the simulation.
-    Contrast(k)=(1-min_sim)/(1+min_sim);
+    Contrast(k)=(1-min_sim)/(1);
     if Contrast(k)>=0.95
         k;
     end
