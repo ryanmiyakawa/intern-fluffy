@@ -49,7 +49,7 @@ for k=1:length(Thickness_range)
     
     %Populate wave functions
     for n=1:4
-        [wave_new, idealMask] = createRectangleTransmission(X, Y, RectangleLocation(n,:), z_elevation, Size_Cell{k}(n,:), Material);
+        [wave_new, idealMask] = createRectangleTransmissionCop(X, Y, RectangleLocation(n,:), z_elevation, Size_Cell{k}(n,:), Material);
         wave=wave.*wave_new;
     end
     %Image SIM
@@ -60,8 +60,8 @@ for k=1:length(Thickness_range)
     %For these absorbers, max is 1. in vaccum region it is 1, but since edge
     %effects will show a wave vale grater than one due to ringing, I wont even
     %ask what the max value is.
-    min_sim = min(abs(filtered{k}),[],'all'); %returns the smallest element of the simulation.
-    Contrast(k)=(1-min_sim)/(1+min_sim);
+    min_sim = min(abs(filtered{k}).^2,[],'all'); %returns the smallest element of the simulation (in terms of intensity).
+    Contrast(k)=(1-min_sim)/1;
     if Contrast(k)>=0.95
         k;
     end
