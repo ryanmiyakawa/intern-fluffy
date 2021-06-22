@@ -43,8 +43,8 @@ size_rec=RectangleArea;
 %Populate for each thickness value
 %combine rectangle area and thicknesss for use with Ryan's function
 
-Size_Cell = cell(1, length(Thickness_range));
-Contrast = ones(length(Thickness_range));
+Size_Cell = ones(length(Thickness_range));
+Contrast = Size_Cell;
 filtered = Size_Cell;
 for k=1:length(Thickness_range)
     size_rec(:,3)=Thickness_range(k);
